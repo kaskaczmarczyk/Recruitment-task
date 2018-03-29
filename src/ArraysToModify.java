@@ -87,24 +87,3 @@ public class ArraysToModify {
     }
 }
 
-/*
-
- */
-
-/*
-            if(!(newTabA[0] < newTabA[1]) && newTabB[0] < newTabB[1]) {
-                exchangeElment(newTabA, newTabB, 1);
-                updateArrays(tabA, tabB, newTabA, newTabB,1);
-                numberOfExchanges++;
-            }
-            if(!(newTabA[1] < newTabA[2]) && newTabB[1] < newTabA[2]) {
-                exchangeElment(newTabA, newTabB, 2);
-                updateArrays(tabA, tabB, newTabA, newTabB,2);
-                numberOfExchanges++;
-            }
-            if (newTabA[1] == newTabA[2] && newTabB[0] == newTabB[1] || newTabB[1] == newTabB[2] && newTabA[0] == newTabA[1]) {
-                exchangeElment(newTabA, newTabB, 1);
-                updateArrays(tabA, tabB, newTabA, newTabB, 1);
-                numberOfExchanges++;
-            }
- */
