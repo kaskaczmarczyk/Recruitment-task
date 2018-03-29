@@ -21,23 +21,32 @@ public class ArraysToModify {
             newTabB[0] = tabB[startIndex];
             newTabB[1] = tabB[startIndex+1];
             newTabB[2] = tabB[startIndex+2];
-
-            if (!(newTabA[0] < newTabA[1]) && newTabB[0] < newTabA[1]) {    //jeśli warunek spełniony to możliwa zamiana elementów o ideksie 1
+            if (!(newTabA[0] < newTabA[1] && newTabB[0] < newTabA[1])) {    //jeśli warunek spełniony to zamiana elementów o ideksie 1
                 exchangeElment(newTabA, newTabB, 1);
                 updateArrays(tabA, tabB, newTabA, newTabB, 1);
                 numberOfExchanges++;
-                if (!(newTabA[1] < newTabA[2] && newTabB[1] < newTabA[2])) {       //jeśli warunek spełniony to możliwa zamiana elementów o ideksie 2
-                    exchangeElment(newTabA, newTabB, 2);
-                    updateArrays(tabA, tabB, newTabA, newTabB, 2);
-                    numberOfExchanges++;
-                }
-                showTabs(newTabA, newTabB);
+            }
+            if (!(newTabA[1] < newTabA[2] && newTabB[1] < newTabA[2])) {       //jeśli warunek spełniony to zamiana elementów o ideksie 2
+                exchangeElment(newTabA, newTabB, 2);
+                updateArrays(tabA, tabB, newTabA, newTabB, 2);
+                numberOfExchanges++;
             }
             if (newTabA[1] == newTabA[2] && newTabB[0] == newTabB[1] || newTabB[1] == newTabB[2] && newTabA[0] == newTabA[1]) {
                 exchangeElment(newTabA, newTabB, 1);
                 updateArrays(tabA, tabB, newTabA, newTabB, 1);
                 numberOfExchanges++;
             }
+            if (newTabA[1] == newTabA[2] || newTabB[1] == newTabB[2]) {
+                exchangeElment(newTabA, newTabB, 2);
+                updateArrays(tabA, tabB, newTabA, newTabB, 2);
+                numberOfExchanges++;
+            }
+            if (newTabA[0] == newTabA[1] || newTabB[0] == newTabB[1]) {
+                exchangeElment(newTabA, newTabB, 1);
+                updateArrays(tabA, tabB, newTabA, newTabB, 1);
+                numberOfExchanges++;
+            }
+            showTabs(newTabA,newTabB);
             System.out.println();
             startIndex++;
         }
@@ -51,12 +60,13 @@ public class ArraysToModify {
     }
 
     public void updateArrays(int tabA[], int tabB[], int newTabA[], int newTabB[], int index) {
-        tabA[index] = newTabA[index];
-        tabB[index] = newTabB[index];
+        tabA[startIndex+index] = newTabA[index];
+        tabB[startIndex+index] = newTabB[index];
     }
 
 
     public void showTabs(int tabA[], int tabB[]) {
+        System.out.println();
         for (int elementA: tabA) {
             System.out.print(elementA + ", ");
         }
@@ -76,3 +86,25 @@ public class ArraysToModify {
         }
     }
 }
+
+/*
+
+ */
+
+/*
+            if(!(newTabA[0] < newTabA[1]) && newTabB[0] < newTabB[1]) {
+                exchangeElment(newTabA, newTabB, 1);
+                updateArrays(tabA, tabB, newTabA, newTabB,1);
+                numberOfExchanges++;
+            }
+            if(!(newTabA[1] < newTabA[2]) && newTabB[1] < newTabA[2]) {
+                exchangeElment(newTabA, newTabB, 2);
+                updateArrays(tabA, tabB, newTabA, newTabB,2);
+                numberOfExchanges++;
+            }
+            if (newTabA[1] == newTabA[2] && newTabB[0] == newTabB[1] || newTabB[1] == newTabB[2] && newTabA[0] == newTabA[1]) {
+                exchangeElment(newTabA, newTabB, 1);
+                updateArrays(tabA, tabB, newTabA, newTabB, 1);
+                numberOfExchanges++;
+            }
+ */
